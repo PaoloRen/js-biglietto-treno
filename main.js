@@ -10,13 +10,21 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 2. il programma deve dare un prezzo al chilometraggio ricevuto dall utente
 3. il programma controlla se si devono applicare sconti in base all età dell utente
 4. il prezzo finale va arrotondato per difetto e si ferma ai primi 2 decimali per indicarne il prezzo in centesimi*/
-
-const km = Number(window.prompt("Scivi i chilometri che vuoi percorrere", ""));
-const laMiaEta = Number(window.prompt("Scrivi la tua età", ""));
+const myForm = document.getElementById('calcoloprezzo')
+const km = document.getElementById('numberofkm');
+const laMiaEta = document.getElementById('passengerage');
 
 
 const prezzo = km * 0.21
 
+myForm.addEventListener('submit', function (event) {
+event.preventDefault();
+
+console.log('prova invio form');
+console.log(km.value);
+console.log(laMiaEta.value);
+
+//il form funziona ricevo dalla console i dati in forma number ma ho provato a spostare il programma di martedi e mi da NaN
 
 
 if (laMiaEta < 18) {
@@ -35,4 +43,11 @@ else if (laMiaEta > 65) {
 else {
     console.log(Math.round(prezzo * 100) / 100)
 }
+
+
+
+
+})
+
+
 
